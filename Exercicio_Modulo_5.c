@@ -8,6 +8,7 @@ int main()
 { 
 	char Nome [5]; // definindo a variavel Nome com letras usando char
 	int laco = 1; // definindo a vairavel Laço com numero inteiro
+	int simnao = 0;
 	
 	setlocale(LC_ALL, "Portuguese"); // Permite a utilização da biblioteca locale.h, podendo usar acentos
 	
@@ -16,8 +17,8 @@ int main()
 		system("cls"); // limpa a tela.
 		
 		menu();
-	
-		system ("cls");
+		
+		system("cls"); // limpa a tela.
 
 		// inicio Switch-Case
 		switch (Opcao)
@@ -33,18 +34,37 @@ int main()
 			case 3: // opção deletar nome
 				deletar();
 				break;
-	
-			default: // qualquer valor que for digitado pelo usuario que nao tenha sido declarado.
-				printf("A opção %i é invalida.\n\n", Opcao);
-				system ("pause");
-				break;
 			
+			// começo da decisao de saida
+			case 4: // fecha o sistema
+				printf("Tem certeza que deseja sair do programa?\n1 para SIM \n2 para NÂO\n");
+				scanf("%d", simnao);
+				
+				if (simnao == "1")
+				{	
+					printf("Obrigado por usar o sistema? \n\n");
+					system ("pause");
+					return 0;
+				}
+					
+				if (simnao == "2")
+				{
+					printf("Voltar a tela de opções!");
+					system ("pause");
+					menu();
+				}
+	
+				else // qualquer valor que for digitado pelo usuario que nao tenha sido declarado.
+				{
+				printf("A opção %d é invalida.\n\n", Opcao);
+				system ("pause");
+				}
+				//fim da decisao de saida
 		// fim do Switch-Case
-		
 		}
 	}
 
-printf("Deus é bom, o tempo todo Deus é .......");	
+printf("Deus é bom, o tempo todo Deus é bom");	
 }
 
 //Variaveis secundarias
@@ -54,9 +74,10 @@ int menu()
 		printf("SELECIONE UMA OPÇÃO PARA CONTINUAR\n\n");
 		printf("\t1. ADICIONAR NOMES\n");
 		printf("\t2. CONSULTAR NOMES\n");
-		printf("\t3. DELETAR NOMES\n\n\n");
+		printf("\t3. DELETAR NOMES\n");
+		printf("\t4. Sair do sistema. \n\n\n");
 	
-		printf("Qual opção você quer: 1, 2 ou 3\n\n");
+		printf("Qual opção você quer: 1, 2, 3 ou 4\n\n");
 		scanf("%d", &Opcao);
 		printf("\n Você escolheu: %d\n\n", Opcao);
 }
