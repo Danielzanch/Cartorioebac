@@ -1,18 +1,18 @@
-#include <stdio.h> //Biblioteca de comunicação com o usuário
-#include <stdlib.h> //Biblioteca de alocação de espaço em memoria
-#include <locale.h> //Biblioteca de alocações de texto por região
+#include <stdio.h> //Biblioteca de comunicaÃ§Ã£o com o usuÃ¡rio
+#include <stdlib.h> //Biblioteca de alocaÃ§Ã£o de espaÃ§o em memoria
+#include <locale.h> //Biblioteca de alocaÃ§Ãµes de texto por regiÃ£o
 #include <string.h>
 int Opcao = 0; // definindo a variavel Opcao com numero inteiro
 
 int main()
 { 
 	char Nome [5]; // definindo a variavel Nome com letras usando char
-	int laco = 1; // definindo a vairavel Laço com numero inteiro
+	int laco = 1; // definindo a vairavel LaÃ§o com numero inteiro
 	int simnao = 0;
 	
-	setlocale(LC_ALL, "Portuguese"); // Permite a utilização da biblioteca locale.h, podendo usar acentos
+	setlocale(LC_ALL, "Portuguese"); // Permite a utilizaÃ§Ã£o da biblioteca locale.h, podendo usar acentos
 	
-	for (laco = 1; laco = 1;) // Laço de repetição For.
+	for (laco = 1; laco = 1;) // LaÃ§o de repetiÃ§Ã£o For.
 	{
 		system("cls"); // limpa a tela.
 		
@@ -23,21 +23,21 @@ int main()
 		// inicio Switch-Case
 		switch (Opcao)
 		{
-			case 1: // opção adicionar Nome
+			case 1: // opÃ§Ã£o adicionar Nome
 				registro();
 				break;
 				
-			case 2: // opção consultar Nome
+			case 2: // opÃ§Ã£o consultar Nome
 				consultar();
 				break;										
 	
-			case 3: // opção deletar nome
+			case 3: // opÃ§Ã£o deletar nome
 				deletar();
 				break;
 			
-			// começo da decisao de saida
+			// comeÃ§o da decisao de saida
 			case 4: // fecha o sistema
-				printf("Tem certeza que deseja sair do programa?\n1 para SIM \n2 para NÂO\n");
+				printf("Tem certeza que deseja sair do programa?\n1 para SIM \n2 para NÃ‚O\n");
 				scanf("%d", simnao);
 				
 				if (simnao == "1")
@@ -49,14 +49,14 @@ int main()
 					
 				if (simnao == "2")
 				{
-					printf("Voltar a tela de opções!");
+					printf("Voltar a tela de opÃ§Ãµes!");
 					system ("pause");
 					menu();
 				}
 	
 				else // qualquer valor que for digitado pelo usuario que nao tenha sido declarado.
 				{
-				printf("A opção %d é invalida.\n\n", Opcao);
+				printf("A opÃ§Ã£o %d Ã© invalida.\n\n", Opcao);
 				system ("pause");
 				}
 				//fim da decisao de saida
@@ -64,22 +64,22 @@ int main()
 		}
 	}
 
-printf("Deus é bom, o tempo todo Deus é bom");	
+printf("Deus Ã© bom, o tempo todo Deus Ã© bom");	
 }
 
 //Variaveis secundarias
 int menu()
 {
 		printf("\n  ***** CADASTRO DE NOMES *****\n\n");
-		printf("SELECIONE UMA OPÇÃO PARA CONTINUAR\n\n");
+		printf("SELECIONE UMA OPÃ‡ÃƒO PARA CONTINUAR\n\n");
 		printf("\t1. ADICIONAR NOMES\n");
 		printf("\t2. CONSULTAR NOMES\n");
 		printf("\t3. DELETAR NOMES\n");
 		printf("\t4. Sair do sistema. \n\n\n");
 	
-		printf("Qual opção você quer: 1, 2, 3 ou 4\n\n");
+		printf("Qual opÃ§Ã£o vocÃª quer: 1, 2, 3 ou 4\n\n");
 		scanf("%d", &Opcao);
-		printf("\n Você escolheu: %d\n\n", Opcao);
+		printf("\n VocÃª escolheu: %d\n\n", Opcao);
 }
 
 int registro()
@@ -90,7 +90,7 @@ int registro()
 	char sobrenome[40];
 	char cargo[40];
 	
-	printf("Digite o CPF que será cadastrado: \n");
+	printf("Digite o CPF que serÃ¡ cadastrado: \n");
 	scanf("%s", cpf);
 	
 	strcpy(arquivo, cpf); // strcpy copia o arquivo do cpf para arquivo, nesse caso
@@ -143,7 +143,7 @@ int consultar()
 	char cpf[40];
 	char conteudo[200];
 	
-	setlocale(LC_ALL, "Portuguese"); // Permite a utilização da biblioteca locale.h, podendo usar acentos
+	setlocale(LC_ALL, "Portuguese"); // Permite a utilizaÃ§Ã£o da biblioteca locale.h, podendo usar acentos
 	
 	printf ("Qual o numero do CPF que quer consultar? \n");
 	scanf("%s", cpf);
@@ -153,11 +153,11 @@ int consultar()
 	
 	if (file == NULL)
 	{
-		printf("O CPF digitado não foi encontrado.");
+		printf("O CPF digitado nÃ£o foi encontrado.");
 	}
 	
 	while (fgets(conteudo, 200, file) != NULL)
-		printf("\nEssas são as informações do usuario: ");
+		printf("\nEssas sÃ£o as informaÃ§Ãµes do usuario: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 		
@@ -168,7 +168,7 @@ int deletar()
 {
 	char cpf[11];
 
-	setlocale(LC_ALL, "Portuguese"); // Permite a utilização da biblioteca locale.h, podendo usar acentos
+	setlocale(LC_ALL, "Portuguese"); // Permite a utilizaÃ§Ã£o da biblioteca locale.h, podendo usar acentos
 	
 	printf("Qual o numero do CPF que deseja deletar\n?");
 	scanf("%s", cpf);
@@ -179,7 +179,7 @@ int deletar()
 
 	if(file == NULL)
 	{
-		printf("Usuario não encontrado. \n\n");
+		printf("Usuario nÃ£o encontrado. \n\n");
 		system("pause");
 	}
 	
