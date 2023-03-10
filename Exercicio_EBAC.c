@@ -22,13 +22,15 @@ int login()
 	
 	printf("\n *** EBAC - Registro de Nomes ***");
 	printf("\n\n--------------------------------\n\n");
-	printf("Digite a senha de acesso!\n");
+	printf("Digite a senha de acesso!\n\n");
 	scanf("%s", senha1);
 	printf("\n");
 	
 	if (strcmp(senha1, senha)==0)
 	{
-		printf("A senha esta correta seja bem vindo: %s\n\n\n\n", user);
+		printf("\n\n---------------------------------------------\n");
+		printf("A senha esta correta seja bem vindo: %s\n", user);
+		printf("---------------------------------------------\n\n\n\n\n");
 		system("pause");
 		system("cls");
 	}
@@ -42,6 +44,8 @@ int login()
 	}
 	
 }
+
+
 int menu()
 {
 	int laco = 1; // definindo a vairavel Laço com numero inteiro
@@ -50,7 +54,8 @@ int menu()
 	
 	setlocale(LC_ALL, "Portuguese"); // Permite a utiliza??o da biblioteca locale.h, podendo usar acentos
 	
-		printf("\n  ***** CADASTRO DE NOMES *****\n\n");
+		printf("\n *** EBAC - Registro de Nomes ***");
+		printf("\n\n--------------------------------\n\n");
 		printf("SELECIONE UMA OPÇÃO PARA CONTINUAR\n\n");
 		printf("\t1. ADICIONAR NOMES\n");
 		printf("\t2. CONSULTAR NOMES\n");
@@ -59,10 +64,10 @@ int menu()
 	
 		printf("Qual opção você quer: 1, 2, 3 ou 4\n\n");
 		scanf("%d", &Opcao);
-		printf("\n Você escolheu: %d\n\n", Opcao);
+		printf("\n\n Você escolheu: %d\n\n", Opcao);
 		
 	
-	for (laco = 1; laco = 1;) // La?o de repeti??o For.
+	for (laco = 1; laco = 1;) // Laço de repetição For.
 	{
 
 		
@@ -71,25 +76,26 @@ int menu()
 		// inicio Switch-Case
 		switch (Opcao)
 		{
-			case 1: // op??o adicionar Nome
+			case 1: // opção adicionar Nome
 				registro();
 				break;
 				
-			case 2: // op??o consultar Nome
+			case 2: // opção consultar Nome
 				consultar();
 				break;										
 	
-			case 3: // op??o deletar nome
+			case 3: // opção deletar nome
 				deletar();
 				break;
 			
-			// come?o da decisao de saida
+			// começo da decisao de saida
 			case 4: // fecha o sistema
 				fechar();
 		// fim do Switch-Case
 		}
 	}
 }
+
 
 int registro()
 {
@@ -100,7 +106,9 @@ int registro()
 	char cargo[40];
 	char sair[10];
 	
-	printf("Digite o CPF que ser? cadastrado: \n");
+	printf("\n *** EBAC - Registro de Nomes ***");
+	printf("\n\n--------------------------------\n\n");
+	printf("Digite o CPF que será cadastrado: \n\n");
 	scanf("%s", cpf);
 	
 	strcpy(arquivo, cpf); // strcpy copia o arquivo do cpf para arquivo, nesse caso
@@ -143,17 +151,22 @@ int registro()
 	fprintf(file, cargo);
 	fclose(file);
 	
-	printf("\n\n\nDados cadastrado: \n\nCPF: %s \nNOME: %s \nSOBRENOME: %s \nCARGO: %s \n\n\n\n", cpf, nome, sobrenome, cargo);
+	system("cls");
+	printf("\n *** EBAC - Registro de Nomes ***");
+	printf("\n\n--------------------------------\n\n");
+	printf("Dados cadastrado: \n\nCPF: %s \nNOME: %s \nSOBRENOME: %s \nCARGO: %s \n\n\n\n", cpf, nome, sobrenome, cargo);
 
 	
 	printf("Deseja cadastrar ou sair?\n\n");
-	printf("(1) para SAIR ou (2) para cadastrar outro usuario.\n\n\n");
+	printf("(1) para SAIR ou (2) para cadastrar outro usuario.\n\n");
 	scanf("%s", sair);
 	system("cls");
 	
 	if (strcmp(sair, "1")==0)
 	{
-		printf("voltando para a tela de Opções!\n\n");
+		printf("\n *** EBAC - Registro de Nomes ***");
+		printf("\n\n--------------------------------\n\n");
+		printf("voltando para a tela do MENU!\n\n\n\n");
 		system("pause");
 		system("cls");
 		menu();
@@ -165,6 +178,7 @@ int registro()
 	}
 }
 
+
 int consultar()
 {
 	char cpf[40];
@@ -173,7 +187,9 @@ int consultar()
 	
 	setlocale(LC_ALL, "Portuguese"); // Permite a utiliza??o da biblioteca locale.h, podendo usar acentos
 	
-	printf ("Qual o numero do CPF que quer consultar? \n");
+	printf("\n *** EBAC - Registro de Nomes ***");
+	printf("\n\n--------------------------------\n\n");
+	printf ("Qual o numero do CPF que quer consultar? \n\n");
 	scanf("%s", cpf);
 	
 	FILE *file;
@@ -181,25 +197,30 @@ int consultar()
 	
 	if (file == NULL)
 	{
-		printf("O CPF digitado n?o foi encontrado.");
+		printf("O CPF digitado não foi encontrado.");
 	}
 	
 	while (fgets(conteudo, 200, file) != NULL)
-		printf("\nEssas s?o as informa??es do usuario: ");
+		printf("\nEssas são as informações do usuario: ");
 		printf("%s", conteudo);
 		printf("\n\n");
-		
 		system("pause");
+		
 	fclose (file);
 	
-	printf("Deseja cadastrar ou sair?\n\n");
-	printf("(1) para SAIR ou (2) para consultar outro usuario.\n\n\n");
+	printf("\n\n--------------------------------\n\n");
+	printf("Deseja sair ou consultar outro cadastro?\n\n");
+	printf("(1) para SAIR ou (2) para consultar outro usuario.\n\n");
 	scanf("%s", sair);
 	system("cls");
 	
 	if (strcmp(sair, "1")==0)
 	{
-		printf("voltando para a tela de Opções!\n\n");
+		system ("cls");
+		printf("\n *** EBAC - Registro de Nomes ***");
+		printf("\n\n--------------------------------\n\n");
+		printf("voltando para a tela do MENU!\n\n\n\n");
+		system("pause");
 		system("cls");
 		menu();
 	}
@@ -211,11 +232,17 @@ int consultar()
 	
 	else 
 	{
-		printf("Opção invalida, vamos consultar outra pessoa!");
+		system("cls");
+		printf("\n *** EBAC - Registro de Nomes ***");
+		printf("\n\n--------------------------------\n\n");
+		printf("Opção invalida, vamos consultar outra pessoa!\n\n\n\n");
 		system("pause");
+		system("cls");
 	}
 	
 }
+
+
 int deletar()
 {
 	char cpf[11];
@@ -223,7 +250,9 @@ int deletar()
 
 	setlocale(LC_ALL, "Portuguese"); // Permite a utiliza??o da biblioteca locale.h, podendo usar acentos
 	
-	printf("Qual o numero do CPF que deseja deletar\n?");
+	printf("\n *** EBAC - Registro de Nomes ***");
+	printf("\n\n--------------------------------\n\n");
+	printf("Qual o numero do CPF que deseja deletar?\n\n\n\n");
 	scanf("%s", cpf);
 	remove(cpf);
 
@@ -232,18 +261,23 @@ int deletar()
 
 	if(file == NULL)
 	{
+     	printf("\n\n--------------------------------\n\n");
 		printf("Usuario não encontrado. \n\n");
 
 	}
-	
+	printf("\n\n--------------------------------\n\n");
 	printf("Deseja deletar outro cadastro ou sair?\n\n");
-	printf("(1) para SAIR ou (2) para deletar outro usuario.\n\n\n");
+	printf("(1) para SAIR ou (2) para deletar outro usuario.\n\n");
 	scanf("%s", sair);
 	system("cls");
 	
 	if (strcmp(sair, "1")==0)
 	{
-		printf("voltando para a tela de Opções!\n\n");
+		system("cls");
+		printf("\n *** EBAC - Registro de Nomes ***");
+		printf("\n\n--------------------------------\n\n");
+		printf("voltando para a tela do MENU!\n\n\n\n");
+		system("pause");
 		system("cls");
 		menu();
 	}
@@ -255,47 +289,54 @@ int deletar()
 	
 	else 
 	{
-		printf("Opção invalida, vamos deletar outra pessoa!");
+		printf("\n *** EBAC - Registro de Nomes ***");
+		printf("\n\n--------------------------------\n\n");
+		printf("Opção invalida, vamos deletar outra pessoa!\n\n\n\n");
 		system("pause");
-		
+		system("cls");
+		deletar();
 	}
 
-
-	
 }
+
 
 int fechar()
 {
 	char decis [3];
 	 
-	printf("\n ** EBAC - Registro de Nomes **");
-	printf("\n\n\n --------------------------------\n\n");
+	printf("\n *** EBAC - Registro de Nomes ***");
+	printf("\n\n--------------------------------\n\n");
 	printf("Tem certeza que deseja sair do programa?\n");
+	printf("(1) para SAIR ou (2) para deletar outro usuario.\n\n");
 	scanf("%s", decis);
 	
 	if (strcmp(decis, "1")==0)
 	{
-		printf("Obrigaado por usar o sistema de cadastrado da EBAC!\n\n\n");
+		printf("\n\nObrigaado por usar o sistema de cadastrado da EBAC!\n\n\n");
 	 	system("pause");
 	    return 0;
 	}
 	
 	if (strcmp(decis, "2")==0)
 	{
-		printf("Voltar ao menu principal\n\n");
+		system("cls");
+		printf("\n *** EBAC - Registro de Nomes ***");
+		printf("\n\n--------------------------------\n\n");
+		printf("voltando para a tela do MENU!\n\n\n\n");
 		system("pause");
 		system("cls");
-		main();
+		menu();
 	}
 	
 	else
 	{
-		printf("Valor digitado invalido!\n");
-		system ("cls");
+		printf("\n\n--------------------------------\n\n");
+		printf("voltando para a opção de sair!\n\n\n\n");
+		system("pause");
+		system("cls");
 		fechar();
 	}
 	
 	return 0;
-	
-	
+		
 }
